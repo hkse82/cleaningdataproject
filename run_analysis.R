@@ -21,8 +21,8 @@ fullset <- rbind(testdf, traindf)
 
 # Extract only the measurements on the mean and standard deviation for each measurement.
 allnames <- c("subject", "activity", as.character(features$V2)) #Get all variable names
-meanstdcolumns <- grep("subject|activity|[Mm]ean|std", allnames, value = FALSE) #Create vector with only mean and std measurement variables
-reducedset <- fullset[ ,meanstdcolumns] #Subset data based on reduced variables
+reducedcolumns <- grep("subject|activity|[Mm]ean|std", allnames, value = FALSE) #Create vector with only mean and std measurement variables
+reducedset <- fullset[ ,reducedcolumns] #Subset data based on reduced variables
 
 #Replace activity numbers with activity names
 reducedset$V1.1 <- activity_labels[reducedset$V1.1,2]
